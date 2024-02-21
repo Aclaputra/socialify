@@ -1,23 +1,34 @@
 <?php
 interface authInterface {
-    public static function register($user);
-    public static function login();
+    public function register($user);
+    public function login($user);
 }
 class auth implements authInterface {
-    private static final $db;
+    private PDO $db; 
     public function __construct($db) {
-        self::$db = $db;
+        $this->db = $db;
     }
-    public static function register($user) {
+    public function register($user)  {
         try {
-
+            $name = $user->getFullName();
+            var_dump($name);
+            $insert = $this->db->prepare(
+                'INSERT INTO accounts(name) VALUES (:name)'
+            );
+            $this->db->beginTransaction();
+            $insert->bindParam(':name',$name);
+            $insert->execute();
+        } catch (PDOException $e) {
+            echo "Error message: " . $e->getMessage();
         } catch (Exception $e) {
-
+            echo "Error message: " . $e->getMessage();
         } finally {
-
+            if ($this->db->inTransaction()) 
+                $this->db->commit();
         }
+        
     }
-    public static function login() {
+    public function login($user) {
         echo "login";
     }
 }

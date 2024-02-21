@@ -1,36 +1,36 @@
 <?php
 
 interface userInterface {
-    public static function getFullName(): string;
-    public static function getUser(): string;
-    public static function getEmail(): string;
-    public static function getPassword(): string;
+    public function getFullName(): ?string;
+    public function getUser(): ?string;
+    public function getEmail(): ?string;
+    public function getPassword(): ?string;
 }
 class user implements userInterface {
-    private static string $fullName;
-    private static string $username;
-    private static string $email;
-    private static string $password;
-    private static string $ipAdress;
+    private ?string $fullName = "";
+    private ?string $username = "";
+    private ?string $email = "";
+    private ?string $password = "";
+    private ?string $ipAdress = "";
 
     public function __construct($fullName, $username, $email, $password) {
         $tempIp = '127.0.0.1';
-        self::$fullName = $fullName;
-        self::$username = $username;
-        self::$email = $email;
-        self::$password = $password;
-        self::$ipAddress = $tempIp;
+        $this->fullName = $fullName;
+        $this->username = $username;
+        $this->email = $email;
+        $this->password = $password;
+        $this->ipAddress = $tempIp;
     }
-    public static function getFullName(): string {
-        return self::$fullName;
+    public function getFullName(): ?string {
+        return $this->fullName;
     }
-    public static function getUser(): string {
-        return self::$username;
+    public function getUser(): ?string {
+        return $this->username;
     }
-    public static function getEmail(): string {
-        return self::$email;
+    public function getEmail(): ?string {
+        return $this->email;
     }
-    public static function getPassword(): string {
-        return self::$password;
+    public function getPassword(): ?string {
+        return $this->password;
     }
 }
