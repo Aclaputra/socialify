@@ -3,18 +3,15 @@ interface postgresInterface {
   public static function getDB();
 }
 
-class postgres {
-
+class postgres implements postgresInterface {
   public static postgres $e;
   public static PDO $database;
-  public static string $DIR = "/";
-  public static string $GMAIL = "akira@gmail.com";
-  public static string $GMAIL_PASSWORD = "akira";
+  
 
-  public static function getDB() : mixed { 
+  public static function getDB() : PDO { 
     try {
       $host ='localhost';
-      $db = 'implement_db';
+      $db = 'twitter_v1';
       $username = 'aclalead';
       $password = '12345';
       
