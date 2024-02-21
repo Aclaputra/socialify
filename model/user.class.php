@@ -11,12 +11,15 @@ class user implements userInterface {
     private static string $username;
     private static string $email;
     private static string $password;
+    private static string $ipAdress;
 
     public function __construct($fullName, $username, $email, $password) {
+        $tempIp = '127.0.0.1';
         self::$fullName = $fullName;
         self::$username = $username;
         self::$email = $email;
         self::$password = $password;
+        self::$ipAddress = $tempIp;
     }
     public static function getFullName(): string {
         return self::$fullName;

@@ -1,10 +1,12 @@
 <?php
     include_once "../config/postgres.class.php";
     include "../app/auth.class.php";
+    include "../model/user.class.php";
 ?>
 
 <?php
-     
+    $postgres = new postgres();
+    $db = $postgres->getDB();
 ?>
 
 <!DOCTYPE html>
@@ -15,19 +17,25 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>register</h1>
+    <h1>Register</h1>
     <form action="register" method="POST">
-        <label for="data">Email</label>
-        <input type="text" name="email">
-        <label for="data">Password</label>
-        <input type="password" name="password">
+        <input type="text" name="full_name" placeholder="Input Full Name"><br>
+        <input type="email" name="email" placeholder="Input Email"><br>
+        <input type="text" name="username" placeholder="Input Username"><br>
+        <input type="password" name="password" placeholder="Input Password"><br>
         <input type="submit" value="submit">
     </form>
     
     <?php
-        $auth = new auth();
+        $auth = new auth($db);
         if (isset($_POST)) {
-            $auth->register($_POST);
+            $user = new user(
+                $_POST['full_name'],
+                $_POST['username'],
+                $_POST['email'],
+                $_POST['password'],
+            );
+            $auth->register($user);
         }
     ?>
 </body>
