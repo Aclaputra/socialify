@@ -1,0 +1,12 @@
+{
+    "name": "enigma/native-social-v1.3",
+    "authors": [
+        {
+            "name": "Muhammad Acla",
+            "email": "aclalead@gmail.com"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^3.0"
+    }
+}

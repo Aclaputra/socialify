@@ -7,6 +7,7 @@ interface authInterface {
 class auth implements authInterface {
     public static function register($data) {
         echo $data['email'] . ' ' . $data['password'];
+        
     }
     public static function login() {
         echo "login";
