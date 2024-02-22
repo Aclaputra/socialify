@@ -21,10 +21,10 @@ class user implements userInterface {
     public function __construct($email, $pass, $name, $username) {
         $tempIp = '127.0.0.1';
         $this->email = $email;
-        $this->password = md5($pass);
+        $this->password = hash('sha256', $pass);
         $this->name = $name;
         $this->username = $username;
-        $this->ipAdress = $tempIp;
+        $this->ipAdress = md5($tempIp);
     }
     public function getName(): ?string {
         return $this->name;
@@ -40,5 +40,8 @@ class user implements userInterface {
     }
     public function getUsername(): ?string {
         return $this->username;
+    }
+    public function getIpAdress(): ?string {
+        return $this->ipAdress;
     }
 }

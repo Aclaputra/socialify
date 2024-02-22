@@ -33,10 +33,10 @@ CREATE TABLE "likes" (
 
 CREATE TABLE "accounts" (
   "account_id" serial PRIMARY KEY,
-  "email" varchar(255),
+  "email" varchar(255) UNIQUE,
   "password" varchar(255),
   "name" varchar(100),
-  "username" varchar(20),
+  "username" varchar(20) UNIQUE,
   "biography" varchar(255),
   "birth_date" date,
   "location" varchar(20),
