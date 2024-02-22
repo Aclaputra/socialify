@@ -1,28 +1,33 @@
 <?php
 
 interface userInterface {
-    public function getFullName(): ?string;
+    public function getName(): ?string;
     public function getUser(): ?string;
     public function getEmail(): ?string;
     public function getPassword(): ?string;
+    public function getUsername(): ?string;
 }
 class user implements userInterface {
-    private ?string $fullName = "";
-    private ?string $username = "";
-    private ?string $email = "";
-    private ?string $password = "";
-    private ?string $ipAdress = "";
+    private ?string $email;
+    private ?string $password;
+    private ?string $name;
+    private ?string $username;
+    private ?string $biography;
+    private ?string $birthDate;
+    private ?string $location;
+    private ?int $age;
+    private ?string $ipAdress;
 
-    public function __construct($fullName, $username, $email, $password) {
+    public function __construct($email, $pass, $name, $username) {
         $tempIp = '127.0.0.1';
-        $this->fullName = $fullName;
-        $this->username = $username;
         $this->email = $email;
-        $this->password = $password;
-        $this->ipAddress = $tempIp;
+        $this->password = md5($pass);
+        $this->name = $name;
+        $this->username = $username;
+        $this->ipAdress = $tempIp;
     }
-    public function getFullName(): ?string {
-        return $this->fullName;
+    public function getName(): ?string {
+        return $this->name;
     }
     public function getUser(): ?string {
         return $this->username;
@@ -32,5 +37,8 @@ class user implements userInterface {
     }
     public function getPassword(): ?string {
         return $this->password;
+    }
+    public function getUsername(): ?string {
+        return $this->username;
     }
 }

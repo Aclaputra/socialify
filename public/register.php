@@ -23,17 +23,17 @@
         <input type="email" name="email" placeholder="Input Email"><br>
         <input type="text" name="username" placeholder="Input Username"><br>
         <input type="password" name="password" placeholder="Input Password"><br>
-        <input type="submit" value="submit">
+        <input type="submit" value="submit" name="submit">
     </form>
     
     <?php
         $auth = new auth($db);
-        if (isset($_POST)) {
+        if (isset($_POST['submit'])) {
             $user = new user(
-                $_POST['full_name'],
-                $_POST['username'],
                 $_POST['email'],
                 $_POST['password'],
+                $_POST['full_name'],
+                $_POST['username'],
             );
             $auth->register($user);
         }

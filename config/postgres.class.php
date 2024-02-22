@@ -10,7 +10,7 @@ class postgres implements postgresInterface {
   public function getDB() : PDO { 
     try {
       $host ='localhost';
-      $db = 'twitter_v1';
+      $db = 'twitter_v2';
       $username = 'aclalead';
       $password = '12345';
       
