@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+
+  nginx:
+    build: ./nginx/
+    ports:
+      - 80:80
+    volumes:
+      - ./php_app/:/var/www/html/
+    
+  php:
+    build: ./php_app/
+    expose: 
+      - 9000
+    volumes:
+      - ./php_app/:/var/www/html/
