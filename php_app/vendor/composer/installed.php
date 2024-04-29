@@ -3,7 +3,7 @@
         'name' => 'enigma/native-social-v1.3',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '613447a32098e08c483b12a39656224c80f30b14',
+        'reference' => '7001be08e912f913be46527d0d602320fa3d43df',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'enigma/native-social-v1.3' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '613447a32098e08c483b12a39656224c80f30b14',
+            'reference' => '7001be08e912f913be46527d0d602320fa3d43df',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

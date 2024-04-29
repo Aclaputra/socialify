@@ -8,6 +8,8 @@ services:
       - 80:80
     volumes:
       - ./php_app/:/var/www/html/
+    networks:
+      - postgres
     
   php:
     build: ./php_app/
@@ -15,3 +17,28 @@ services:
       - 9000
     volumes:
       - ./php_app/:/var/www/html/
+      # - ./config/php/:/usr/local/etc/
+    networks:
+      - postgres
+
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: aclalead
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: twitter_v2
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes: 
+  postgres: 
