@@ -16,6 +16,10 @@ Search Functionality: Easily find friends and explore content using the search f
 Clone the Socialify repository to your local machine:
 ```bash
 git clone https://github.com/Aclaputra/socialify.git
+cd /php_app
+composer install
+
+cd ..
 docker compose up -d
 ```
 
